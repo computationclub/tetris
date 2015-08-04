@@ -19,17 +19,34 @@ class Grid {
       let x = 0;
 
       while (x < width) {
-        do Screen.drawRectangle(
-            x * pixelsPerCell,
-            y * pixelsPerCell,
-            ((x + 1) * pixelsPerCell) - 1,
-            ((y + 1) * pixelsPerCell) - 1
-        );
+        if (valueAt(x, y)) {
+          do Screen.drawRectangle(
+              x * pixelsPerCell,
+              y * pixelsPerCell,
+              ((x + 1) * pixelsPerCell) - 1,
+              ((y + 1) * pixelsPerCell) - 1
+          );
+        }
 
         let x = x + 1;
       }
 
       let y = y + 1;
     }
+
+    return;
+  }
+
+  method bool valueAt(int x, int y) {
+    var int index;
+    let index = (y * width) + x;
+    return cells[index];
+  }
+
+  method void setValueAt(int x, int y, bool value) {
+    var int index;
+    let index = (y * width) + x;
+    let cells[index] = value;
+    return;
   }
 }

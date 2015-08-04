@@ -2,6 +2,10 @@ class Main {
   function void main() {
     var Grid grid;
     let grid = Grid.new(10, 16);
+    do grid.setValueAt(5, 5, true);
+    do grid.setValueAt(5, 6, true);
+    do grid.setValueAt(6, 4, true);
+    do grid.setValueAt(6, 5, true);
     do grid.draw();
   }
 }
