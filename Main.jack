@@ -1,0 +1,7 @@
+class Main {
+  function void main() {
+    var Grid grid;
+    let grid = Grid.new(10, 16);
+    do grid.draw();
+  }
+}

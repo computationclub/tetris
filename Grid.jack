@@ -1,0 +1,35 @@
+class Grid {
+  field int pixelsPerCell;
+  field int width, height;
+  field Array cells;
+
+  constructor Grid new(int w, int h) {
+    let pixelsPerCell = 16;
+    let width = w;
+    let height = h;
+    let cells = Array.new(width * height);
+    return this;
+  }
+
+  method void draw() {
+    var int x, y;
+    let y = 0;
+
+    while (y < height) {
+      let x = 0;
+
+      while (x < width) {
+        do Screen.drawRectangle(
+            x * pixelsPerCell,
+            y * pixelsPerCell,
+            ((x + 1) * pixelsPerCell) - 1,
+            ((y + 1) * pixelsPerCell) - 1
+        );
+
+        let x = x + 1;
+      }
+
+      let y = y + 1;
+    }
+  }
+}
